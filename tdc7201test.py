@@ -9,7 +9,7 @@ tdc = tdc7201.TDC7201()
 tdc.initGPIO(enable=11, osc_enable=15, trig1=7, int1=29, trig2=None, int2=None, verbose=True, start=None, stop=None)
 tdc.set_SPI_clock_speed(1250000)
 tdc.on()
-tdc.configure(meas_mode=1,num_stop=1, trig_falling=False)
+tdc.configure(meas_mode=2,num_stop=1, trig_falling=False)
 
 instr=vxi11.Instrument("129.217.164.90")
 instr.write("LAMP 0,3.3")
@@ -31,7 +31,7 @@ flanke2="2"
 flanke3="3"
 flanke4="4"
 times = []
-x=10
+x=5000
 t1="Eingestellt Zeit = "
 t2=" ps"
 t3=" mit "
