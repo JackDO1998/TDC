@@ -22,11 +22,11 @@ instr.write("LAMP 4,3.3")
 instr.write("DLAY 4,2,250e-9")
 befehl1="DLAY "
 komma=","
-zpotenz="e-12"
+zpotenz="e-9"
 i=0
-start=int(input("Startzeit in ps: "))
-stop=int(input("Stopzeit in ps: "))
-step=int(input("Schrittweite in ps: "))
+start=int(input("Startzeit in ns: "))
+stop=int(input("Stopzeit in ns: "))
+step=int(input("Schrittweite in ps: "))/1e3
 Delay="DISP 11,4"
 flanke1="1"
 flanke2="2"
@@ -35,7 +35,7 @@ flanke4="4"
 times = []
 x=5000
 t1="Eingestellt Zeit = "
-t2=" ps"
+t2=" ns"
 t3=" mit "
 t4=" Messungen"
 endung=".pdf"
@@ -59,7 +59,7 @@ try:
             normalLSB=1/(calCount*CLOCK)
             TOF=TIME1*normalLSB
 
-            times.append(TOF)
+            times.append(TOF*1e9)
             if(len(times) % x == 0):
 
                 titel=t1+str(start+i*step)+t2+t3+str(x)+t4
@@ -67,7 +67,7 @@ try:
                 saveastxt=pfad+str(start+i*step)+t2+ednung2
                 
                 plt.hist(times, bins=100)
-                plt.xlabel("Δt  /ps")
+                plt.xlabel("Δt  /ns")
                 plt.ylabel("Anzahl der Ereignisse")
                 plt.title(titel)
                 plt.savefig(saveas)
