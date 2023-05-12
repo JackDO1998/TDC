@@ -40,6 +40,8 @@ pfad="histogramme/"
 titel=t1+str(start+i*step)+t2+t3+str(x)+t4
 saveas=pfad+str(start+i*step)+t2+endung
 try:
+    pck=befehl1 + flanke4 + komma + flanke2 + komma + start + zpotenz
+    instr.write(pck)
     while i<=(stop-start)/step:
         status = tdc.measure(simulate=False)
         if status == 1:
