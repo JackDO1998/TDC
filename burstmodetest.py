@@ -35,6 +35,10 @@ try:
             TIME2=tdc.read24(0x12)
             TIME3=tdc.read24(0x14)
             TIME4=tdc.read24(0x16)
+            COUNT1=tdc.read24(0x11)
+            COUNT2=tdc.read24(0x13)
+            COUNT3=tdc.read24(0x15)
+            COUNT4=tdc.read24(0x17)
             #calCount=(CALIBRATION2-CALIBRATION1)/(CALIBRATION_PERIODS-1)
             #normalLSB=1/(calCount*CLOCK)
             
@@ -44,9 +48,13 @@ try:
             #TOF4=TIME4*normalLSB
 
             print(TIME1)
+            print(COUNT1)
             print(TIME2)
+            print(COUNT2)
             print(TIME3)
+            print(COUNT3)
             print(TIME4)
+            print(COUNT4)
 
             #times.append(TOF1*1e9)
             #times.append(TOF2*1e9)
