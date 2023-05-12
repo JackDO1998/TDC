@@ -19,40 +19,42 @@ saveas="Burstmode.pdf"
 saveastxt="Burstmode.txt"
 x=5000
 times=[]
+i=0
 try:
-    
-    status = tdc.measure(simulate=False)
-    if status == 1:
-        CALIBRATION1=tdc.read24(0x1B)
-        CALIBRATION2=tdc.read24(0x1C)
-        TIME1=tdc.read24(0x10)
-        TIME2=tdc.read24(0x12)
-        TIME3=tdc.read24(0x14)
-        TIME4=tdc.read24(0x16)
-        calCount=(CALIBRATION2-CALIBRATION1)/(CALIBRATION_PERIODS-1)
-        normalLSB=1/(calCount*CLOCK)
+    while i==0:
+        status = tdc.measure(simulate=False)
+        if status == 1:
+            CALIBRATION1=tdc.read24(0x1B)
+            CALIBRATION2=tdc.read24(0x1C)
+            TIME1=tdc.read24(0x10)
+            TIME2=tdc.read24(0x12)
+            TIME3=tdc.read24(0x14)
+            TIME4=tdc.read24(0x16)
+            calCount=(CALIBRATION2-CALIBRATION1)/(CALIBRATION_PERIODS-1)
+            normalLSB=1/(calCount*CLOCK)
             
-        TOF1=TIME1*normalLSB
-        TOF2=TIME1*normalLSB
-        TOF3=TIME1*normalLSB
-        TOF4=TIME1*normalLSB
+            TOF1=TIME1*normalLSB
+            TOF2=TIME1*normalLSB
+            TOF3=TIME1*normalLSB
+            TOF4=TIME1*normalLSB
 
-        times.append(TOF1*1e9)
-        times.append(TOF2*1e9)
-        times.append(TOF3*1e9)
-        times.append(TOF4*1e9)
+            times.append(TOF1*1e9)
+            times.append(TOF2*1e9)
+            times.append(TOF3*1e9)
+            times.append(TOF4*1e9)
 
-        if(len(times) % x == 0):
-            plt.hist(times, bins=1000)
-            plt.xlabel("Δt  /ns")
-            plt.ylabel("Anzahl der Ereignisse")
-            plt.title(titel)
-            plt.savefig(saveas)
-            plt.close('all')
+            if(len(times) % x == 0):
+                plt.hist(times, bins=1000)
+                plt.xlabel("Δt  /ns")
+                plt.ylabel("Anzahl der Ereignisse")
+                plt.title(titel)
+                plt.savefig(saveas)
+                plt.close('all')
 
-            with open(saveastxt,"w") as temp_file:
-                for item in times:
-                    temp_file.write("%s\n"% item)
+                with open(saveastxt,"w") as temp_file:
+                    for item in times:
+                        temp_file.write("%s\n"% item)
+                i=1 
 
 except KeyboardInterrupt:
     tdc.off()
