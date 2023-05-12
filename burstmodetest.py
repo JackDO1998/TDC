@@ -19,13 +19,13 @@ CALIBRATION_PERIODS=10
 titel="Burstmode "
 saveas="Burstmode.pdf"
 saveastxt="Burstmode.txt"
-x=40
+x=400
 times=[]
 i=0
 try:
     while i==0:
         tdc.write8(0x00,0x03)
-        time.sleep(1)
+        time.sleep(0.1)
         status = 1#tdc.measure(simulate=False)
         if status == 1:
             print("Datensatz vorhanden")
