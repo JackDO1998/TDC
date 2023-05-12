@@ -22,9 +22,9 @@ befehl1="DLAY "
 komma=","
 zpotenz="e-12"
 i=0
-start=300000
-stop=301000
-step=10
+start=input("Startzeit in ps: ")
+stop=input("Stopzeit in ps: ")
+step=input("Schrittweite in ps: ")
 Delay="DISP 11,4"
 flanke1="1"
 flanke2="2"
@@ -49,7 +49,7 @@ try:
         status = tdc.measure(simulate=False)
         if status == 1:
             tdc.compute_tofs()
-            times.append(tdc.tof1*1e9)
+            times.append(tdc.tof1*1e12)
             if(len(times) % x == 0):
 
                 titel=t1+str(start+i*step)+t2+t3+str(x)+t4
@@ -57,7 +57,7 @@ try:
                 saveastxt=pfad+str(start+i*step)+t2+ednung2
                 
                 plt.hist(times, bins=100)
-                plt.xlabel("Δt  /ns")
+                plt.xlabel("Δt  /ps")
                 plt.ylabel("Anzahl der Ereignisse")
                 plt.title(titel)
                 plt.savefig(saveas)
