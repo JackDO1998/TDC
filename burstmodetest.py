@@ -51,7 +51,7 @@ try:
             #times.append(TOF3*1e9)
             #times.append(TOF4*1e9)
 
-            if(len(times) % x == 0):
+            if(len(times) == 40):
                 plt.hist(times, bins=1000)
                 plt.xlabel("Δt  /ns")
                 plt.ylabel("Anzahl der Ereignisse")
