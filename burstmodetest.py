@@ -24,9 +24,9 @@ times=[]
 i=0
 try:
     while i==0:
-        #tdc.write8(0x00,0x03)
-        #time.sleep(1)
-        status = tdc.measure(simulate=False)
+        tdc.write8(0x00,0x03)
+        time.sleep(1)
+        status = 1#tdc.measure(simulate=False)
         if status == 1:
             print("Datensatz vorhanden")
             CALIBRATION1=tdc.read24(0x1B)
@@ -53,12 +53,12 @@ try:
             print(TOF3)
             print(TOF4)
 
-            #times.append(TOF1*1e9)
-            #times.append(TOF2*1e9)
-            #times.append(TOF3*1e9)
-            #times.append(TOF4*1e9)
+            times.append(TOF1*1e9)
+            times.append(TOF2*1e9)
+            times.append(TOF3*1e9)
+            times.append(TOF4*1e9)
 
-            if(len(times) == 40):
+            if(len(times) % x == 0):
                 plt.hist(times, bins=1000)
                 plt.xlabel("Δt  /ns")
                 plt.ylabel("Anzahl der Ereignisse")
