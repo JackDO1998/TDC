@@ -21,33 +21,32 @@ befehl1="DLAY "
 komma=","
 zpotenz="e-9"
 i=0
-start=250
-stop=800
-step=10e-3
+start=300
+stop=301
+step=1e-3
 Delay="DISP 11,4"
 flanke1="1"
 flanke2="2"
 flanke3="3"
 flanke4="4"
 times = []
+x=5000
 t1="Eingestellt Zeit = "
 t2=" ns"
+t3=" mit "
+t5=" Messungen"
 endung=".pdf"
 pfad="histogramme/"
-titel=t1+str(i)+t2
-saveas=pfad+str(i)+t2+endung
+titel=t1+str(start+i*step)+t2+t3+str(x)+t4
+saveas=pfad+str(start+i*step)+t2+endung
 try:
     while i<=(stop-start)/step:
         status = tdc.measure(simulate=False)
         if status == 1:
             tdc.compute_tofs()
             times.append(tdc.tof1*1e9)
-            if(len(times) % 5000 == 0):
-                plt.hist(times, bins=100)
-                plt.xlabel('Δt / ns')
-                plt.show()
-                plt.clf()
-
+            if(len(times) % x == 0):
+                
                 plt.hist(times, bins=100)
                 plt.xlabel("Δt  /ns")
                 plt.ylabel("Anzahl der Ereignisse")
