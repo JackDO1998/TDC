@@ -10,7 +10,7 @@ tdc.initGPIO(enable=11, osc_enable=15, trig1=7, int1=29, trig2=None, int2=None, 
 tdc.set_SPI_clock_speed(1250000)
 tdc.on()
 tdc.configure(meas_mode=2,num_stop=4, trig_falling=False, calibration2_periods=10)
-#tdc.write8(0x01,0x43)
+tdc.write8(0x01,0x43)
 tdc.write8(0x00,0x03)
 print(tdc.read8(0x01))
 print(tdc.read8(0x00))
