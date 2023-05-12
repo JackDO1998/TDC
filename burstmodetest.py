@@ -24,7 +24,7 @@ times=[]
 i=0
 try:
     while i==0:
-        status = tdc.measure(simulate=False)
+        status = 1#tdc.measure(simulate=False)
         if status == 1:
             print("Datensatz vorhanden")
             CALIBRATION1=tdc.read24(0x1B)
@@ -41,10 +41,15 @@ try:
             TOF3=TIME3*normalLSB
             TOF4=TIME4*normalLSB
 
-            times.append(TOF1*1e9)
-            times.append(TOF2*1e9)
-            times.append(TOF3*1e9)
-            times.append(TOF4*1e9)
+            print(TOF1)
+            print(TOF2)
+            print(TOF3)
+            print(TOF4)
+
+            #times.append(TOF1*1e9)
+            #times.append(TOF2*1e9)
+            #times.append(TOF3*1e9)
+            #times.append(TOF4*1e9)
 
             if(len(times) % x == 0):
                 plt.hist(times, bins=1000)
