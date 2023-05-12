@@ -23,14 +23,14 @@ zpotenz="e-9"
 i=0
 start=300
 stop=301
-step=1e-3
+step=10e-3
 Delay="DISP 11,4"
 flanke1="1"
 flanke2="2"
 flanke3="3"
 flanke4="4"
 times = []
-x=50
+x=5000
 t1="Eingestellt Zeit = "
 t2=" ns"
 t3=" mit "
