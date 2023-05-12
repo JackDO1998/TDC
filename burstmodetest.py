@@ -24,9 +24,9 @@ times=[]
 i=0
 try:
     while i==0:
-        tdc.write8(0x00,0x03)
-        time.sleep(1)
-        status = 1#tdc.measure(simulate=False)
+        #tdc.write8(0x00,0x03)
+        #time.sleep(1)
+        status = tdc.measure(simulate=False)
         if status == 1:
             print("Datensatz vorhanden")
             CALIBRATION1=tdc.read24(0x1B)
