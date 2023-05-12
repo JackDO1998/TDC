@@ -25,7 +25,7 @@ i=0
 try:
     while i==0:
         tdc.write8(0x00,0x03)
-        time(10)
+        time.sleep(1)
         status = 1#tdc.measure(simulate=False)
         if status == 1:
             print("Datensatz vorhanden")
