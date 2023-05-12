@@ -19,7 +19,7 @@ CALIBRATION_PERIODS=10
 titel="Burstmode "
 saveas="Burstmode.pdf"
 saveastxt="Burstmode.txt"
-x=400
+x=4000
 times=[]
 i=0
 try:
@@ -43,10 +43,10 @@ try:
             calCount=(CALIBRATION2-CALIBRATION1)/(CALIBRATION_PERIODS-1)
             normalLSB=1/(calCount*CLOCK)
             
-            TOF1=TIME1*normalLSB + COUNT1/CLOCK #- (TIME2*normalLSB)
-            TOF2=TIME2*normalLSB + COUNT2/CLOCK #- (TIME3*normalLSB)
-            TOF3=TIME3*normalLSB + COUNT3/CLOCK #- (TIME4*normalLSB)
-            TOF4=TIME4*normalLSB + COUNT4/CLOCK #- (TIME5*normalLSB)
+            TOF1=TIME1*normalLSB + COUNT1/CLOCK - (TIME2*normalLSB)
+            TOF2=TIME2*normalLSB + COUNT2/CLOCK - (TIME3*normalLSB)
+            TOF3=TIME3*normalLSB + COUNT3/CLOCK - (TIME4*normalLSB)
+            TOF4=TIME4*normalLSB + COUNT4/CLOCK - (TIME5*normalLSB)
 
             print(TOF1)
             print(TOF2)
