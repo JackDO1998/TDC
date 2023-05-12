@@ -31,7 +31,7 @@ flanke2="2"
 flanke3="3"
 flanke4="4"
 times = []
-x=5000
+x=10
 t1="Eingestellt Zeit = "
 t2=" ps"
 t3=" mit "
