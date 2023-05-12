@@ -37,7 +37,7 @@ x=5000
 t1="Eingestellt Zeit = "
 t2=" ns"
 t3=" mit "
-t4=" Messungen"
+t4=" Messungen Modus 1"
 endung=".pdf"
 ednung2=".txt"
 pfad="histogramme/"
