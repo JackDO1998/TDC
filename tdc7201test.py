@@ -4,6 +4,7 @@ import plotext as plt
 import numpy as np
 import vxi11
 import matplotlib.pyplot as plt
+import json
 tdc = tdc7201.TDC7201()
 tdc.initGPIO(enable=11, osc_enable=15, trig1=7, int1=29, trig2=None, int2=None, verbose=True, start=None, stop=None)
 tdc.set_SPI_clock_speed(1250000)
@@ -58,8 +59,9 @@ try:
                 plt.title(titel)
                 plt.savefig(saveas)
 
-                with open(saveas,"w") as opfile:
-                    opfile.write("\n".join(times))
+                with open(saveas,"w") as temp_file:
+                    for item in times:
+                        temp_file.write("%s\n"% item)
 
                 wert=str(start+i*step)
                 pck=befehl1 + flanke4 + komma + flanke2 + komma + wert + zpotenz
