@@ -34,7 +34,7 @@ x=5000
 t1="Eingestellt Zeit = "
 t2=" ns"
 t3=" mit "
-t5=" Messungen"
+t4=" Messungen"
 endung=".pdf"
 pfad="histogramme/"
 titel=t1+str(start+i*step)+t2+t3+str(x)+t4
