@@ -61,6 +61,7 @@ try:
                 plt.ylabel("Anzahl der Ereignisse")
                 plt.title(titel)
                 plt.savefig(saveas)
+                plt.close('all')
 
                 with open(saveastxt,"w") as temp_file:
                     for item in times:
