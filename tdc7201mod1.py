@@ -9,7 +9,7 @@ tdc = tdc7201.TDC7201()
 tdc.initGPIO(enable=11, osc_enable=15, trig1=7, int1=29, trig2=None, int2=None, verbose=True, start=None, stop=None)
 tdc.set_SPI_clock_speed(1250000)
 tdc.on()
-tdc.configure(meas_mode=1,num_stop=1, trig_falling=False)
+tdc.configure(meas_mode=1,num_stop=1, trig_falling=False, calibration2_periods=40)
 
 instr=vxi11.Instrument("129.217.164.90")
 instr.write("LAMP 0,3.3")
@@ -48,8 +48,16 @@ try:
     while i<=(stop-start)/step:
         status = tdc.measure(simulate=False)
         if status == 1:
-            
-            times.append(tdc.read24(0x10))
+            CALIBRATION1=tdc.read24(0x1B)
+            CALIBRATION2=tdc.read24(0x1C)
+            TIME1=tdc.read24(0x10)
+            CLOCK=8e6
+            CALIBRATION_PERIODS=40
+            calCount=(CALIBRATION2-CALIBRATION1)/(CALIBRATION_PERIODS-1)
+            normalLSB=1/(calCount*CLOCK)
+            TOF=TIME1*normalLSB
+
+            times.append(TOF)
             if(len(times) % x == 0):
 
                 titel=t1+str(start+i*step)+t2+t3+str(x)+t4
