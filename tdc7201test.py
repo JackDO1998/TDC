@@ -19,11 +19,11 @@ instr.write("LAMP 4,3.3")
 instr.write("DLAY 4,2,250e-9")
 befehl1="DLAY "
 komma=","
-zpotenz="e-9"
+zpotenz="e-12"
 i=0
-start=300
-stop=301
-step=10e-3
+start=300000
+stop=301000
+step=10
 Delay="DISP 11,4"
 flanke1="1"
 flanke2="2"
