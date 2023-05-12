@@ -37,9 +37,11 @@ t2=" ps"
 t3=" mit "
 t4=" Messungen"
 endung=".pdf"
+ednung2=".txt"
 pfad="histogramme/"
 titel=t1+str(start+i*step)+t2+t3+str(x)+t4
 saveas=pfad+str(start+i*step)+t2+endung
+saveastxt=pfad+str(start+i*step)+t2+endung
 try:
     pck=befehl1 + flanke4 + komma + flanke2 + komma + str(start) + zpotenz
     instr.write(pck)
@@ -52,6 +54,7 @@ try:
 
                 titel=t1+str(start+i*step)+t2+t3+str(x)+t4
                 saveas=pfad+str(start+i*step)+t2+endung
+                saveastxt=pfad+str(start+i*step)+t2+ednung2
                 
                 plt.hist(times, bins=100)
                 plt.xlabel("Δt  /ns")
@@ -59,7 +62,7 @@ try:
                 plt.title(titel)
                 plt.savefig(saveas)
 
-                with open(saveas,"w") as temp_file:
+                with open(saveastxt,"w") as temp_file:
                     for item in times:
                         temp_file.write("%s\n"% item)
 
