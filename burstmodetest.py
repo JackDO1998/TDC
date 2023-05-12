@@ -35,9 +35,9 @@ try:
             normalLSB=1/(calCount*CLOCK)
             
             TOF1=TIME1*normalLSB
-            TOF2=TIME1*normalLSB
-            TOF3=TIME1*normalLSB
-            TOF4=TIME1*normalLSB
+            TOF2=TIME2*normalLSB
+            TOF3=TIME3*normalLSB
+            TOF4=TIME4*normalLSB
 
             times.append(TOF1*1e9)
             times.append(TOF2*1e9)
