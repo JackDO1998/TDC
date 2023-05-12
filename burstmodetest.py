@@ -24,6 +24,7 @@ try:
     while i==0:
         status = tdc.measure(simulate=False)
         if status == 1:
+            print("Datensatz vorhanden")
             CALIBRATION1=tdc.read24(0x1B)
             CALIBRATION2=tdc.read24(0x1C)
             TIME1=tdc.read24(0x10)
