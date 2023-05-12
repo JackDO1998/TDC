@@ -32,7 +32,7 @@ flanke4="4"
 times = []
 x=5000
 t1="Eingestellt Zeit = "
-t2=" ns"
+t2=" ps"
 t3=" mit "
 t4=" Messungen"
 endung=".pdf"
@@ -48,12 +48,18 @@ try:
             tdc.compute_tofs()
             times.append(tdc.tof1*1e9)
             if(len(times) % x == 0):
+
+                titel=t1+str(start+i*step)+t2+t3+str(x)+t4
+                saveas=pfad+str(start+i*step)+t2+endung
                 
                 plt.hist(times, bins=100)
                 plt.xlabel("Δt  /ns")
                 plt.ylabel("Anzahl der Ereignisse")
                 plt.title(titel)
                 plt.savefig(saveas)
+
+                with open(saveas,"w") as opfile:
+                    opfile.write("\n".join(times))
 
                 wert=str(start+i*step)
                 pck=befehl1 + flanke4 + komma + flanke2 + komma + wert + zpotenz
