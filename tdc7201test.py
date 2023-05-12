@@ -5,7 +5,7 @@ import numpy as np
 import vxi11
 import matplotlib.pyplot as plt
 tdc = tdc7201.TDC7201()
-tdc.initGPIO(enable=12, osc_enable=16, trig1=7, int1=37, trig2=None, int2=None, verbose=True, start=None, stop=None)
+tdc.initGPIO(enable=11, osc_enable=15, trig1=7, int1=29, trig2=None, int2=None, verbose=True, start=None, stop=None)
 tdc.set_SPI_clock_speed(1250000)
 tdc.on()
 tdc.configure(meas_mode=2,num_stop=1, trig_falling=False)
