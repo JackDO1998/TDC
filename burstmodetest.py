@@ -17,7 +17,7 @@ CALIBRATION_PERIODS=10
 titel="Burstmode "
 saveas="Burstmode.pdf"
 saveastxt="Burstmode.txt"
-x=5000
+x=40
 times=[]
 i=0
 try:
