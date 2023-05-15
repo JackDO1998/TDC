@@ -62,16 +62,16 @@ try:
             times.append(TOF*1e9)
             if(len(times) % x == 0):
 
-                titel=t1+str(start+i*step)+t2+t3+str(x)+t4
-                saveas=pfad+str(start+i*step)+t2+endung
-                saveastxt=pfad+str(start+i*step)+t2+ednung2
+                #titel=t1+str(start+i*step)+t2+t3+str(x)+t4
+                #saveas=pfad+str(start+i*step)+t2+endung
+                saveastxt=pfad+str(round(start+i*step,2))+t2+ednung2
                 
-                plt.hist(times, bins=100)
-                plt.xlabel("Δt  /ns")
-                plt.ylabel("Anzahl der Ereignisse")
-                plt.title(titel)
-                plt.savefig(saveas)
-                plt.close('all')
+                #plt.hist(times, bins=100)
+                #plt.xlabel("Δt  /ns")
+                #plt.ylabel("Anzahl der Ereignisse")
+                #plt.title(titel)
+                #plt.savefig(saveas)
+                #plt.close('all')
 
                 with open(saveastxt,"w") as temp_file:
                     for item in times:
