@@ -51,7 +51,8 @@ try:
             tdc.compute_tofs()
             times.append(tdc.tof1*1e12)
             if(len(times) % x == 0):
-
+                pck=befehl1 + flanke4 + komma + flanke2 + komma + wert + zpotenz
+                instr.write(pck)
                 titel=t1+str(start+i*step)+t2+t3+str(x)+t4
                 saveas=pfad+str(start+i*step)+t2+endung
                 saveastxt=pfad+str(start+i*step)+t2+ednung2
