@@ -46,6 +46,7 @@ saveastxt=pfad+str(start*1e-3)+t2+endung
 try:
     pck=befehl1 + flanke4 + komma + flanke2 + komma + str(start) + zpotenz
     instr.write(pck)
+    instr.write(Delay)
     while i<=x:
         status = tdc.measure(simulate=False)
         if status == 1:
