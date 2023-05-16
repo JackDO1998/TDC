@@ -21,6 +21,7 @@ instr.write("LAMP 1,3.3")
 instr.write("LAMP 2,3.3")
 instr.write("LAMP 3,3.3")
 instr.write("LAMP 4,3.3")
+instr.write("TRAT 100")
 instr.write("DLAY 4,2,250e-9")
 
 
@@ -60,7 +61,9 @@ if not os.path.exists(ordnerpfad):
 log=ordnerpfad+sl+t6+endung2
 logdatei = open(log,'a')
 time_string=time.strftime("%d-%m-%Y, %H:%M:%S")
+logdatei.write("Start der Messung: ")
 logdatei.write(time_string)
+
 
 
 i=0
