@@ -36,7 +36,7 @@ x=int(input("Anzahl der Messungen: "))
 t1="Eingestellt Zeit = "
 t2=" ns"
 t3=" mit "
-t4=" Messungen Modus 1"
+t4=" Messungen Modus 2"
 endung=".pdf"
 ednung2=".txt"
 pfad="histogramme/"
