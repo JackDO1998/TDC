@@ -60,7 +60,7 @@ if not os.path.exists(ordnerpfad):
 log=ordnerpfad+sl+t6+endung2
 logdatei = open(log,'a')
 time_string=time.strftime("%d-%m-%Y, %H:%M:%S")
-logdatei.write(time_string=time.strftime("%d-%m-%Y, %H:%M:%S"))
+logdatei.write(time_string)
 
 
 i=0
