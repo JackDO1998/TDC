@@ -36,6 +36,8 @@ while tsoll<=stop:
     speicherdatei.write(str(float(binsnorm[peaks])))
     speicherdatei.write('\r\n')
     speicherdatei.close()
+    
+    
     print(i)
     i=i+1
 

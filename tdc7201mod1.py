@@ -47,8 +47,8 @@ s="-"
 at="@"
 
 
-start=int(input("Startzeit in ns: "))
-stop=int(input("Stopzeit in ns: "))
+start=int(input("Startzeit in ps: "))/1e3
+stop=int(input("Stopzeit in ps: "))/1e3
 step=int(input("Schrittweite in ps: "))/1e3
 x=int(input("Anzahl der Messungen pro Schritt:"))
 
