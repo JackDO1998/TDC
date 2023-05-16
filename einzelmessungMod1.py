@@ -48,7 +48,7 @@ try:
     pck=befehl1 + flanke4 + komma + flanke2 + komma + str(start) + zpotenz
     instr.write(pck)
     instr.write(Delay)
-    while i<=x:
+    while i<1:
         status = tdc.measure(simulate=False)
         if status == 1:
             CALIBRATION1=tdc.read24(0x1B)
