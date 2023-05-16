@@ -63,7 +63,7 @@ try:
 
                 titel=t1+str(start*1e-3)+t2+t3+str(x)+t4
                 saveas=pfad+str(start*1e-3)+t2+endung
-                saveastxt=pfad+str(round(start*e-3,2))+t2+ednung2
+                saveastxt=pfad+str(round(start*1e-3,2))+t2+ednung2
                 
                 plt.hist(times, bins=100)
                 plt.xlabel("Δt  /ns")
