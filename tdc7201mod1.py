@@ -61,14 +61,18 @@ if not os.path.exists(ordnerpfad):
 log=ordnerpfad+sl+t6+endung2
 logdatei = open(log,'a')
 time_string=time.strftime("%d-%m-%Y, %H:%M:%S")
+startzeit=time.time()
 logdatei.write("Start der Messung: ")
 logdatei.write(time_string)
+logdatei.write('\r\n')
+logdatei.close()
+
 
 
 
 i=0
 times = []
-
+count=0
 
 titel=t1+str(start+i*step)+t2+t3+str(x)+t4
 saveas=pfad+str(start+i*step)+t2+endung
@@ -114,5 +118,21 @@ try:
                 print(i," von ", (stop-start)/step)
                 times = []
                 i=i+1
+        count=count+1
 except KeyboardInterrupt:
     tdc.off()
+    stopzeit=time.time()
+    logdatei = open(log,'a')
+    time_string=time.strftime("%d-%m-%Y, %H:%M:%S")
+    logdatei.write("Ende der Messung: ")
+    logdatei.write('\r\n')
+    logdatei.write(time_string)
+    logdatei.write("Dauer der Messung in s: ")
+    logdatei.write(stopzeit-startzeit)
+    logdatei.write('\r\n')
+    logdatei.write("Messzyklen gesamt: ")
+    logdatei.write(count)
+    logdatei.write("Messzyklen erfolgreich: ")
+    logdatei.write(i)
+    logdatei.write('\r\n')
+    logdatei.close()
