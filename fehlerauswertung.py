@@ -9,15 +9,16 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from scipy.signal import find_peaks
-start=9.0
-stop=9.9
-step=0.1
+start=12.0
+stop=37.0
+step=0.01
 speicherort="daten/"
 endung=" ns.txt"
 tsoll=start
+i=0
 while tsoll<=stop:
     
-    name=str(round(tsoll,1))
+    name=str(round(tsoll,2))
     datei = speicherort + name + endung
     x=np.loadtxt(datei, usecols=[0], dtype=float)
 
@@ -30,17 +31,11 @@ while tsoll<=stop:
     #plt.plot(binsnorm,n1)
     tsoll=tsoll+step
     speicherdatei = open('daten.txt','a')
-    speicherdatei.write(str(round(tsoll,1)))
+    speicherdatei.write(str(round(tsoll,2)))
     speicherdatei.write("     ")
     speicherdatei.write(str(float(binsnorm[peaks])))
     speicherdatei.write('\r\n')
     speicherdatei.close()
-
-a=np.loadtxt('daten.txt', usecols=[0], dtype=float)
-b=np.loadtxt('daten.txt', usecols=[1], dtype=float)
-plt.plot(a,b,'r*')
-
-
-
-
+    print(i)
+    i=i+1
 
