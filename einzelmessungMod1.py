@@ -20,6 +20,7 @@ instr.write("LAMP 2,3.3")
 instr.write("LAMP 3,3.3")
 instr.write("LAMP 4,3.3")
 instr.write("DLAY 4,2,250e-9")
+instr.write("TRAT 1e3")
 befehl1="DLAY "
 komma=","
 zpotenz="e-12"
