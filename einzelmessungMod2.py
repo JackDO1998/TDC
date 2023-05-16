@@ -9,7 +9,8 @@ tdc = tdc7201.TDC7201()
 tdc.initGPIO(enable=11, osc_enable=15, trig1=7, int1=29, trig2=None, int2=None, verbose=True, start=None, stop=None)
 tdc.set_SPI_clock_speed(1250000)
 tdc.on()
-tdc.configure(meas_mode=2,num_stop=1, trig_falling=False, calibration2_periods=10)
+tdc.configure(meas_mode=2,num_stop=1, trig_falling=False, calibration2_periods=10,clock_cntr_stop = N)
+tdc.write8(0x00,0x01)
 
 
 instr=vxi11.Instrument("129.217.164.90")
@@ -51,7 +52,7 @@ try:
         status = tdc.measure(simulate=False)
         if status == 1:
             tdc.compute_tofs()
-            times.append(tdc.tof1*1e12)
+            times.append(tdc.tof1*1e9)
             if(len(times) % x == 0):
 
                 titel=t1+str(start*1e-3)+t2+t3+str(x)+t4
