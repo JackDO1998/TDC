@@ -33,10 +33,10 @@ flanke2="2"
 flanke3="3"
 flanke4="4"
 t1="Eingestellt Zeit = "
-t2=" ns"
+t2="ns"
 t3=" mit "
 t4=" Messungen Modus 1"
-t5=" ps"
+t5="ps"
 t6="log"
 endung=".pdf"
 ednung2=".txt"
@@ -52,12 +52,12 @@ step=int(input("Schrittweite in ps: "))/1e3
 x=int(input("Anzahl der Messungen pro Schritt:"))
 
 
-ordnerpfad=pfad + str(round(start,2)) + s + str(round(stop,2)) + t2 + at + str(round(step,2)) + t5
+ordnerpfad=pfad + str(round(start,2)) + s + str(round(stop,2)) + t2 + at + str(round(step*1e3,2)) + t5
 if not os.path.exists(ordnerpfad):
     os.makedirs(ordnerpfad)
 
 
-log=ordnerpfad
+log=ordnerpfad+sl
 logdatei = open(log,'a')
 time_string=time.strftime("%d-%m-%Y, %H:%M:%S")
 logdatei.write(time_string=time.strftime("%d-%m-%Y, %H:%M:%S"))
