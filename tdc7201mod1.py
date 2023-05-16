@@ -39,7 +39,7 @@ t4=" Messungen Modus 1"
 t5="ps"
 t6="log"
 endung=".pdf"
-ednung2=".txt"
+endung2=".txt"
 pfad="histogramme/"
 sl="/"
 s="-"
@@ -57,7 +57,7 @@ if not os.path.exists(ordnerpfad):
     os.makedirs(ordnerpfad)
 
 
-log=ordnerpfad+sl
+log=ordnerpfad+sl+t6+endung2
 logdatei = open(log,'a')
 time_string=time.strftime("%d-%m-%Y, %H:%M:%S")
 logdatei.write(time_string=time.strftime("%d-%m-%Y, %H:%M:%S"))
@@ -91,7 +91,7 @@ try:
 
                 #titel=t1+str(start+i*step)+t2+t3+str(x)+t4
                 #saveas=ordnerpfad+sl+str(start+i*step)+t2+endung
-                saveastxt=ordnerpfad+sl+str(round(start+i*step,2))+t2+ednung2
+                saveastxt=ordnerpfad+sl+str(round(start+i*step,2))+t2+endung2
                 
                 #plt.hist(times, bins=100)
                 #plt.xlabel("Δt  /ns")
