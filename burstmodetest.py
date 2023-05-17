@@ -9,7 +9,7 @@ tdc = tdc7201.TDC7201()
 tdc.initGPIO(enable=11, osc_enable=15, trig1=7, int1=29, trig2=None, int2=None, verbose=True, start=None, stop=None)
 tdc.set_SPI_clock_speed(1250000)
 tdc.on()
-tdc.configure(meas_mode=2,num_stop=3, trig_falling=False, calibration2_periods=10, clock_cntr_stop = 120)
+tdc.configure(meas_mode=2,num_stop=2, trig_falling=False, calibration2_periods=10, clock_cntr_stop = 200)
 tdc.write8(0x01,0x43)
 tdc.write8(0x00,0x03)
 print(tdc.read8(0x01))
@@ -45,17 +45,17 @@ try:
             
             TOF1=TIME1*normalLSB + COUNT1/CLOCK - (TIME2*normalLSB)
             TOF2=TIME2*normalLSB + COUNT2/CLOCK - (TIME3*normalLSB)
-            TOF3=TIME3*normalLSB + COUNT3/CLOCK - (TIME4*normalLSB)
+            #TOF3=TIME3*normalLSB + COUNT3/CLOCK - (TIME4*normalLSB)
             #TOF4=TIME4*normalLSB + COUNT4/CLOCK - (TIME5*normalLSB)
 
             print(TOF1)
             print(TOF2)
-            print(TOF3)
+            #print(TOF3)
             #print(TOF4)
 
             times.append(TOF1*1e9)
             times.append(TOF2*1e9)
-            times.append(TOF3*1e9)
+            #times.append(TOF3*1e9)
             #times.append(TOF4*1e9)
 
             if(len(times) % x == 0):
