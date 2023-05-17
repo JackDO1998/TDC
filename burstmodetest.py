@@ -46,17 +46,17 @@ try:
             TOF1=TIME1*normalLSB + COUNT1/CLOCK - (TIME2*normalLSB)
             TOF2=TIME2*normalLSB + COUNT2/CLOCK - (TIME3*normalLSB)
             TOF3=TIME3*normalLSB + COUNT3/CLOCK - (TIME4*normalLSB)
-            TOF4=TIME4*normalLSB + COUNT4/CLOCK - (TIME5*normalLSB)
+            #TOF4=TIME4*normalLSB + COUNT4/CLOCK - (TIME5*normalLSB)
 
             print(TOF1)
             print(TOF2)
             print(TOF3)
-            print(TOF4)
+            #print(TOF4)
 
             times.append(TOF1*1e9)
             times.append(TOF2*1e9)
             times.append(TOF3*1e9)
-            times.append(TOF4*1e9)
+            #times.append(TOF4*1e9)
 
             if(len(times) % x == 0):
                 plt.hist(times, bins=1000)
