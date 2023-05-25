@@ -41,7 +41,7 @@ try:
             COUNT2=tdc.read24(0x13)
             COUNT3=tdc.read24(0x15)
             COUNT4=tdc.read24(0x17)
-            Count6=tdc.read24(0x19)
+            COUNT5=tdc.read24(0x19)
             calCount=(CALIBRATION2-CALIBRATION1)/(CALIBRATION_PERIODS-1)
             normalLSB=1/(calCount*CLOCK)
             
