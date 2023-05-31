@@ -81,7 +81,7 @@ try:
     pck=befehl1 + flanke4 + komma + flanke2 + komma + str(start) + zpotenz
     instr.write(pck)
     instr.write(Delay)
-    while i<=(stop-start)/step:
+    while i<=int((stop-start)/step):
         status = tdc.measure(simulate=False)
         if status == 1:
             CALIBRATION1=tdc.read24(0x1B)
@@ -127,7 +127,7 @@ try:
     logdatei.write('\r\n')
     logdatei.write(time_string)
     logdatei.write("Dauer der Messung in s: ")
-    logdatei.write(int(stopzeit-startzeit))
+    logdatei.write(str(stopzeit-startzeit))
     logdatei.write('\r\n')
     logdatei.write("Messzyklen gesamt: ")
     logdatei.write(count)
@@ -144,7 +144,7 @@ except KeyboardInterrupt:
     logdatei.write('\r\n')
     logdatei.write(time_string)
     logdatei.write("Dauer der Messung in s: ")
-    logdatei.write(int(stopzeit-startzeit))
+    logdatei.write(str(stopzeit-startzeit))
     logdatei.write('\r\n')
     logdatei.write("Messzyklen gesamt: ")
     logdatei.write(count)
