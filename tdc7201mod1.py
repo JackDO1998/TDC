@@ -47,10 +47,15 @@ s="-"
 at="@"
 
 
-start=int(input("Startzeit in ps: "))/1e3
-stop=int(input("Stopzeit in ps: "))/1e3
-step=int(input("Schrittweite in ps: "))/1e3
-x=int(input("Anzahl der Messungen pro Schritt:"))
+#start=int(input("Startzeit in ps: "))/1e3
+#stop=int(input("Stopzeit in ps: "))/1e3
+#step=int(input("Schrittweite in ps: "))/1e3
+#x=int(input("Anzahl der Messungen pro Schritt:"))
+
+start=7
+stop=20
+step=10
+x=5000
 
 
 ordnerpfad=pfad + str(round(start,2)) + s + str(round(stop,2)) + t2 + at + str(round(step*1e3,2)) + t5
@@ -91,7 +96,7 @@ try:
             CALIBRATION_PERIODS=10
             calCount=(CALIBRATION2-CALIBRATION1)/(CALIBRATION_PERIODS-1)
             normalLSB=1/(calCount*CLOCK)
-            TOF=TIME1*normalLSB
+            TOF=(TIME1*normalLSB)-91.3 #ungefähre Kabellänge
 
             times.append(TOF*1e9)
             if(len(times) % x == 0):
@@ -151,6 +156,6 @@ except KeyboardInterrupt:
     logdatei.write(str(count))
     logdatei.write('\r\n')
     logdatei.write("Messzyklen erfolgreich: ")
-    logdatei.write(str(i))
+    logdatei.write(str(i*x))
     logdatei.write('\r\n')
     logdatei.close()
