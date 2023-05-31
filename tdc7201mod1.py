@@ -53,7 +53,7 @@ at="@"
 #x=int(input("Anzahl der Messungen pro Schritt:"))
 
 start=7
-stop=20
+stop=40
 step=0.01
 x=5000
 
