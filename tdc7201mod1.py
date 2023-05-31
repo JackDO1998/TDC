@@ -115,7 +115,7 @@ try:
                 pck=befehl1 + flanke4 + komma + flanke2 + komma + wert + zpotenz
                 instr.write(pck)
                 instr.write(Delay)
-                print(i," von ", (stop-start)/step)
+                print(i," von ", int((stop-start)/step))
                 times = []
                 i=i+1
         count=count+1
@@ -127,7 +127,7 @@ try:
     logdatei.write('\r\n')
     logdatei.write(time_string)
     logdatei.write("Dauer der Messung in s: ")
-    logdatei.write(stopzeit-startzeit)
+    logdatei.write(int(stopzeit-startzeit))
     logdatei.write('\r\n')
     logdatei.write("Messzyklen gesamt: ")
     logdatei.write(count)
@@ -144,7 +144,7 @@ except KeyboardInterrupt:
     logdatei.write('\r\n')
     logdatei.write(time_string)
     logdatei.write("Dauer der Messung in s: ")
-    logdatei.write(stopzeit-startzeit)
+    logdatei.write(int(stopzeit-startzeit))
     logdatei.write('\r\n')
     logdatei.write("Messzyklen gesamt: ")
     logdatei.write(count)
