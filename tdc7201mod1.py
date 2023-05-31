@@ -54,7 +54,7 @@ at="@"
 
 start=7
 stop=20
-step=10
+step=0.01
 x=5000
 
 
