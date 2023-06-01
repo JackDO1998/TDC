@@ -53,8 +53,8 @@ at="@"
 #x=int(input("Anzahl der Messungen pro Schritt:"))
 
 start=7
-stop=40
-step=0.01
+stop=400
+step=0.25
 x=5000
 
 
@@ -96,7 +96,7 @@ try:
             CALIBRATION_PERIODS=10
             calCount=(CALIBRATION2-CALIBRATION1)/(CALIBRATION_PERIODS-1)
             normalLSB=1/(calCount*CLOCK)
-            TOF=(TIME1*normalLSB)-91.3 #ungefähre Kabellänge
+            TOF=(TIME1*normalLSB)
 
             times.append(TOF*1e9)
             if(len(times) % x == 0):
