@@ -22,9 +22,9 @@ if __name__ == '__main__':
         while True:
             values.append(q.get())
             if len(values) > 8000:
-                buckets = values
+                buckets = values[:192]
                 values = []
-                pv.put(buckets)
+                pv.value=buckets
 
     p.join()
  
