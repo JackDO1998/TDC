@@ -32,7 +32,7 @@ if __name__ == '__main__':
         while True:
             values.append(q.get())
             if len(values) % 100 == 0:
-                buckets = plt.hist(values, bins=191)
+                buckets = plt.hist(values, bins=192)
                 pv.value=buckets
             if len(values) > 10000:
                 j=0
