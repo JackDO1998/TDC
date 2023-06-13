@@ -10,10 +10,10 @@ import random
 
 def read_spi(q):
     t=0
-    while t <= 6000:
+    while t <= 600000:
         q.put(random.uniform(0,100))
         t=t+1
-        time.sleep(0.1)
+        time.sleep(0.001)
         
 
 
