@@ -47,15 +47,15 @@ s="-"
 at="@"
 
 
-#start=int(input("Startzeit in ps: "))/1e3
-#stop=int(input("Stopzeit in ps: "))/1e3
-#step=int(input("Schrittweite in ps: "))/1e3
-#x=int(input("Anzahl der Messungen pro Schritt:"))
+start=int(input("Startzeit in ps: "))/1e3
+stop=int(input("Stopzeit in ps: "))/1e3
+step=int(input("Schrittweite in ps: "))/1e3
+x=int(input("Anzahl der Messungen pro Schritt:"))
 
-start=7
-stop=50
-step=0.250
-x=5000
+#start=7
+#stop=50
+#step=0.250
+#x=5000
 
 
 ordnerpfad=pfad + str(round(start,2)) + s + str(round(stop,2)) + t2 + at + str(round(step*1e3,2)) + t5
