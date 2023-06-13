@@ -33,7 +33,7 @@ if __name__ == '__main__':
         while True:
             values.append(q.get())
             if len(values) % 100 == 0:
-                buckets , Werte =plt.hist(values, bins=192)
+                buckets , bins , patches=plt.hist(values, bins=192)
                 print(buckets)
                 print(len(buckets))
                 pv.value =buckets 
