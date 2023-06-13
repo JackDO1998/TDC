@@ -27,15 +27,15 @@ if __name__ == '__main__':
 
     with cas.Server() as server:
         pv = server.createPV('GAS-buckets', ca.Type.FLOAT, count=192)
-        print(len(pv.value))
+        #print(len(pv.value))
 
         values = []
         while True:
             values.append(q.get())
             if len(values) % 100 == 0:
                 buckets , bins , patches=plt.hist(values, bins=192)
-                print(buckets)
-                print(len(buckets))
+                #print(buckets)
+                #print(len(buckets))
                 pv.value =buckets 
                 
             if len(values) > 10000:
