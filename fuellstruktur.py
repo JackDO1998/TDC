@@ -34,6 +34,7 @@ if __name__ == '__main__':
             values.append(q.get())
             if len(values) % 100 == 0:
                 buckets=plt.hist(values, bins=192)
+                print(buckets)
                 print(len(buckets))
                 pv.value =buckets 
                 
