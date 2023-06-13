@@ -4,7 +4,7 @@ import channel_access.server as cas
 import tdc7201
 import time
 import random
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 
 
