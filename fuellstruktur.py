@@ -4,6 +4,8 @@ import channel_access.server as cas
 import tdc7201
 import time
 import random
+import matplotlib as plt
+
 
 
 
@@ -11,7 +13,8 @@ import random
 def read_spi(q):
     t=0
     while t <= 600000:
-        q.put(random.uniform(0,100))
+        a=2*random.uniform(0,96) + random.gauss(18,1)/1000
+        q.put(a)
         t=t+1
         time.sleep(0.001)
         
@@ -28,8 +31,8 @@ if __name__ == '__main__':
         values = []
         while True:
             values.append(q.get())
-            if len(values) > 192:
-                buckets = values[:192]
+            if len(values) % 100 == 0:
+                buckets = plt.hist(values, bins=192)
                 values = []
                 pv.value=buckets
 
