@@ -26,7 +26,7 @@ if __name__ == '__main__':
     p.start()
 
     with cas.Server() as server:
-        pv = server.createPV('GAS-buckets', ca.Type.FLOAT, count=192)
+        pv = server.createPV('GAS-buckets', ca.Type.FLOAT, count=193)
 
         values = []
         while True:
