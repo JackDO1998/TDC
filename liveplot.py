@@ -1,28 +1,35 @@
+import random
+from itertools import count
+import pandas as pd
 import matplotlib.pyplot as plt
-import matplotlib.animation as animation
-from matplotlib import style
+from matplotlib.animation import FuncAnimation
 
+plt.style.use('fivethirtyeight')
 
-style.use('fivethirtyeight')
+x_vals = list(range(1,193,1))
+print(x_vals)
+X=[100]
+y_vals = len(x_vals)*X
 
-fig = plt.figure()
-ax1 = fig.add_subplot(1,1,1)
+index = count()
 
 
 def animate(i):
-    test = open('test.txt','r')
-    graph_data = test.read()
-    lines = graph_data.split('\n')
-    xs = []
-    ys = []
-    for line in lines:
-        if len(line) > 1:
-            x, y = line.split(',')
-            xs.append(float(x))
-            ys.append(float(y))
-    ax1.clear()
-    ax1.plot(xs, ys)
+    i=0
+    while i<=len(x_vals)-1:
+        y_vals[i] = y_vals[i]+random.uniform(-10,10)
+        i+=1
+
+    plt.cla()
+
+    plt.bar(x_vals, y_vals, label='Channel 1')
+    
+
+    plt.legend(loc='upper left')
+    plt.tight_layout()
 
 
-ani = animation.FuncAnimation(fig, animate, interval=1000)
+ani = FuncAnimation(plt.gcf(), animate, interval=1000)
+
+plt.tight_layout()
 plt.show()

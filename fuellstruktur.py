@@ -12,7 +12,7 @@ def read_spi(q):
     while t <= 6000:
         q.put(t)
         t=t+1
-        time.sleep(1)
+        time.sleep(0.1)
         
 
 
