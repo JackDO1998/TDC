@@ -3,6 +3,7 @@ import channel_access.common as ca
 import channel_access.server as cas
 import tdc7201
 import time
+import random
 
 
 
@@ -10,7 +11,7 @@ import time
 def read_spi(q):
     t=0
     while t <= 6000:
-        q.put(t)
+        q.put(random.uniform(0,100))
         t=t+1
         time.sleep(0.1)
         
